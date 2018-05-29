@@ -5,11 +5,27 @@ import { Route, Switch, NavLink } from 'react-router-dom'
 
 class GithubUser extends Component {
 
-    fetchUserData = () => {
+    constructor(props){
+        super(props)
 
-        fetch(`https://api.github.com/users/${this.props.match.params.username}`)
+        this.state = {
+            user: {},
+        }
+        this.fetchUserData()
+    }
+
+    componentWillReceiveProps(nextProps){
+        const locationChange = nextProps.location !== this.props.location
+        if(locationChange){
+            this.fetchUserData(nextProps)
+        }
+    }
+
+    fetchUserData = (props) => {
+
+        fetch(`https://api.github.com/users/${props.match.params.username}`)
         .then(response => response.json())
-        .then(user => console.log(user))
+        .then(user => this.setState({user}) )
         .catch(error => console.log(error))
     }
 
@@ -18,6 +34,9 @@ class GithubUser extends Component {
         return (
             <div className="GithubUser">
                 <h1>Githib User: {this.props.match.params.username}</h1>
+                <img src={this.user.avatar_url} alt=""/>
+
+
             </div>
         )
 
