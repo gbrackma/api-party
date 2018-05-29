@@ -20,3 +20,31 @@ h3 {
   padding: 20px;
   color: white;
 }
+
+.navLink {
+  list-style: none;
+  padding-left: 0;
+}
+
+.navLink li {
+  display: inline-block;
+  padding: 0 15px;
+}
+
+.navLink a {
+  color: #02b1ff;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.navLink a.active {
+  color: #F79824;
+}
+
+.navLink a.active:hover {
+  color: #FDCA40;
+}
+
+.navLink a:hover {
+  color: #0184be;
+}
