@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import './Github.css'
 import { Route, Switch, NavLink } from 'react-router-dom'
+import GithubUser from './GithubUser'
 
 class Github extends Component {
 
@@ -35,8 +36,8 @@ class Github extends Component {
                         <button type="submit">Look up GitHub user</button>
                     </div>
                 </form>
-                <Route exact path="/github" render={() => <h3>Please enter username to search on github</h3>} />
-                <Route  path="/github/:username" render={(props) => <h3>you searched for </h3>} />
+                <Route exact path="/github" component={GithubUser} />
+                <Route  path="/github/:username" render={(props) => <h3>you searched for {props.match.params.username}</h3>} />
 
 
             </div>
