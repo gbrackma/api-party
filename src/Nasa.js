@@ -1,20 +1,35 @@
 import React, { Component } from 'react'
-
+import { Route, NavLink } from 'react-router-dom'
+import RoverInfo from './RoverInfo'
 import './Nasa.css'
-import { Route, Switch, NavLink } from 'react-router-dom'
 
 class Nasa extends Component {
-    render() {
+  render = () => {
+    return (
+      <div className="Nasa">
+        <img className="logo" src="https://www.nasa.gov/sites/default/files/images/nasaLogo-570x450.png" alt="nasa" />
 
-        return (
-            <div className="Nasa">
-            <h1>NASA</h1>
-                <img src="https://www.nasa.gov/sites/default/files/images/nasaLogo-570x450.png" alt='nasa' className='logo'/>
-                
-            </div>
-        )
+        <h2>Select a mars rover.</h2>
+        <ul className="nav-links">
+          <li>
+            <NavLink to='/nasa/curiosity'>Curiosity</NavLink>
+          </li>
+          <li>
+            <NavLink to='/nasa/opportunity'>Opportunity</NavLink>
+          </li>
+          <li>
+            <NavLink to='/nasa/spirit'>Spirit</NavLink>
+          </li>
+        </ul>
 
-    }
+        <Route exact path={this.props.match.url} render={() => (
+          <h2>No rover selected.</h2>
+        )} />
+
+        <Route path={`${this.props.match.url}/:rover`} component={RoverInfo}/>
+      </div>
+    )
+  }
 }
 
 export default Nasa
