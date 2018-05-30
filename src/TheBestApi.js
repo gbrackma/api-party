@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-//import './Github.css'
+import './TheBestApi.css'
 
 class TheBestApi extends Component {
 
@@ -32,8 +32,9 @@ class TheBestApi extends Component {
 
         const {dog} = this.state
         return (
-            <div className="GithubUser">
+            <div className="dog">
                 <img src={dog.message} alt="" />
+                <button onClick={() => this.fetchUserData()}>New Pup Please!</button>
             </div>
         )
 

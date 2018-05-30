@@ -6,6 +6,7 @@ import Github from './Github'
 import Nasa from './Nasa'
 import Homework from './Homework'
 import TheBestApi from './TheBestApi'
+import Question from './Question'
 
 class App extends Component {
   render() {
@@ -28,12 +29,16 @@ class App extends Component {
           <li>
             <NavLink to="/thebestapi">DOGS</NavLink>
           </li>
+          <li>
+            <NavLink to="/questions">Questions</NavLink>
+          </li>
         </ul>
         <Switch>
           <Route path="/github" component={Github} />
           <Route path="/nasa" component={Nasa} />
           <Route path="/homework" component={Homework} />
           <Route path="/thebestapi" component={TheBestApi} />
+          <Route path="/questions" component={Question} />
           <Route render={() => <p>To get started, click one of the links above.</p>} />
         </Switch>
       </div>
